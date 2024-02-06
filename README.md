@@ -98,7 +98,13 @@ $ python gen_model_answer.py \
 --model-id [MODEL-ID] \
 --bench-name mt_bench 
 ```
-
+If using proprietary models such as GPT-3.5 or GPT-4 as reviewers, you need to enter the key first.
+```bash
+$ export OPENAI_API_KEY=XXXXXX  # set the OpenAI API key
+$ python gen_model_answer.py \
+--model-id [MODEL-ID] \
+--bench-name mt_bench 
+```
 Arguments:
   - `[MODEL-PATH]` is the path to the weights, which can be a local folder or a Hugging Face repo ID.
   - `[MODEL-ID]` is a name you give to the model.
