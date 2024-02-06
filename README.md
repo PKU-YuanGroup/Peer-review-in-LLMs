@@ -1,7 +1,7 @@
 <p align="center">
     <img src="assets\cute.png" width="600" style="margin-bottom: 0.2;"/>
 
-<h2 align="center"> <a href="https://arxiv.org/pdf/2402.01830">【NIPS 2024 🔥】Peer-review-in-LLMs: Automatic Evaluation Method for LLMs in Open-environment</a></h2>
+<h2 align="center"> <a href="https://arxiv.org/pdf/2402.01830">Peer-review-in-LLMs: Automatic Evaluation Method for LLMs in Open-environment</a></h2>
 <h5 align="center"> If you like our project, please give us a star ⭐ on GitHub for latest update.  </h2>
 
 
