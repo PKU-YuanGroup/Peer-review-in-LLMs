@@ -24,3 +24,4 @@ pandas
 scipy
 jsonlines
 vllm
+einops
