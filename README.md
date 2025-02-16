@@ -1,7 +1,7 @@
 <p align="center">
-    <img src="assets\cute.png" width="600" style="margin-bottom: 0.2;"/>
+    <img src="./assets/cute.png" width="600" style="margin-bottom: 0.2;"/>
 
-<h2 align="center"> <a href="https://arxiv.org/pdf/2402.01830">Peer-review-in-LLMs: Automatic Evaluation Method for LLMs in Open-environment</a></h2>
+<h2 align="center"> <a href="https://arxiv.org/pdf/2402.01830">[ICLR'25] PiCO: Peer Review in LLMs based on the Consistency Optimization</a></h2>
 <h5 align="center"> If you like our project, please give us a star ⭐ on GitHub for latest update.  </h2>
 
 
@@ -12,50 +12,28 @@
 ## 🤗 Brief Intro
 
 <p align="center">
-<img src="assets\law.jpg" width=100%>
+<img src="./assets/law.jpg" width=100%>
 </p>
 
-Existing large language models (LLMs) evaluation methods typically focus on **testing the performance on some closed-environment and domain-specific benchmarks** with human annotations. We explore a novel unsupervised evaluation direction, utilizing **peer-review** mechanisms to measure LLMs automatically. In this setting, both open-source and closed-source LLMs **lie in the same environment**, capable of answering unlabeled questions and evaluating each other. To obtain the ability hierarchy among these models, we assign each LLM a learnable capability parameter to adjust the final ranking.We formalize it as a constrained optimization problem, intending to maximize the consistency of each LLM's capabilities and scores. The key assumption behind is that **high-level LLM can evaluate others' answers more accurately than low-level ones, while higher-level LLM can also achieve higher response scores**. 
+Existing large language models (LLMs) evaluation methods typically focus on testing the performance on some closed-environment and domain-specific benchmarks with human annotations. In this paper, we explore a novel **unsupervised evaluation direction**, utilizing **_peer-review_** mechanisms to measure LLMs automatically without any human feedback.
+In this setting, both open-source and closed-source LLMs lie in the same environment, capable of answering unlabeled questions and evaluating each other, where each LLM’s response score is jointly determined by other anonymous ones. 
+During this process, we found that those answers that are more recognized by other ``reviewers'' (models) usually come from LLMs with stronger abilities, while these models can also evaluate others' answers more accurately. 
+We formalize it as a **_consistency assumption_**, _i.e._, the ability and score of the model usually have consistency. 
+We exploit this to optimize each model's confidence, thereby re-ranking the LLMs to be closer to human rankings.
+We perform experiments on multiple datasets with standard rank-based metrics, validating the effectiveness of the proposed approach.
 
-## 😮 Highlights
-
-### 💡 A novel LLM automatic evaluation direction
-Peer-review-in-LLMs is a novel LLM automatic evaluation direction **without human feedback**, utilizing peer-review mechanisms to measure LLMs automatically. All LLMs can answer unlabeled questions and evaluate each other.
-
-
-### ⚡️ A constrained optimization based on the consistency assumption
-A constrained optimization based on the **consistency assumption** is proposed to re-rank the LLMs to be closer to human rankings.
-* The key assumption is that high-level LLM can evaluate others’ answers more accurately (confidence) than low-level ones, while higher-level LLM can also achieve higher answer-ranking scores.
-
-### 🔥 Three metrics for evaluating the gap with human preferences
-We propose three metrics called PEN (**P**ermutation **En**tropy), CIN(**C**ount **In**versions), and LIS(**L**ongest **I**ncreasing **S**ubsequence) on the peer-review-in-LLMs framework for evaluating the gap **with human preferences**.
+## 🤗 The Pipeline of PiCO
+Our PiCO framework integrates peer review with LLMs for response evaluation. It unfolds in two phases: first, LLMs generate and peer-review responses to questions, ranking them by confidence. Next, we refine these weights through consistency optimization, aiming to **minimize the system's entropy**, thereby achieving the final ranking
 <p align="center">
-<img src="assets\Metric.png" width=80%>
-</p>
-
-## 🤗 The Pipeline of Peer-review-in-LLMs
-Our 'Peer-review-in-LLMs' framework integrates peer review with LLMs for response evaluation. It unfolds in two phases: first, LLMs generate and peer-review responses to questions, ranking them by confidence. Next, we refine these weights through consistency optimization, aiming to **minimize the system's entropy**, thereby achieving the final ranking
-<p align="center">
-<img src="assets\peer-review-cute.png" width=100%>
+<img src="./assets/peer-review-cute.png" width=100%>
 </p>
 
 ## 🚀 Main Results
 
 Our experimental results, derived from tests conducted on the Chatbot Arena, MT-Bench, and Alpaca-Farm datasets. Across all three datasets, our Peer Review method (Ours) **outperformed the other three settings on all metrics**, demonstrating its robustness and generalizability across different datasets.
 
-- Chatbot Arena
 <p align="center">
-<img src="assets\chatbot.jpg" width=75%>
-</p>
-
-- MT-Bench
-<p align="center">
-<img src="assets\mt_bench.jpg" width=75%>
-</p>
-
-- Alpaca-Farm
-<p align="center">
-<img src="assets\Alpaca.jpg" width=75%>
+<img src="./assets/main_results.png" width=95%>
 </p>
 
 ## 🛠️ Quick Start
